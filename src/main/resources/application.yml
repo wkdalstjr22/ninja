@@ -1,0 +1,27 @@
+server:
+  port: 8484
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521:XE
+    username: jms
+    password: 1234
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    show_sql: true
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+    add-mappings: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
